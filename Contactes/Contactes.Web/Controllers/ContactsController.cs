@@ -29,8 +29,14 @@ namespace Contactes.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Contact contact)
         {
-            if (ModelState.IsValid)
+            var findedEmail = await _context.Contacts.FirstOrDefaultAsync(c => c.Email == contact.Email);
+            if (findedEmail != null)
             {
+                ModelState.AddModelError("Email", "This email is already in use");
+                return View(contact);
+            }
+            if (ModelState.IsValid)
+            { 
                 _context.Add(contact);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
