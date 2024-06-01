@@ -29,12 +29,13 @@ namespace Contactes.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Contact contact)
         {
-            var findedEmail = await _context.Contacts.FirstOrDefaultAsync(c => c.Email == contact.Email);
-            if (findedEmail != null)
+            bool findedEmail = await _context.Contacts.AnyAsync(c => c.Email == contact.Email);
+            if (findedEmail)// == true)
             {
                 ModelState.AddModelError("Email", "This email is already in use");
                 return View(contact);
             }
+            
             if (ModelState.IsValid)
             { 
                 _context.Add(contact);
@@ -68,11 +69,15 @@ namespace Contactes.Web.Controllers
                 return NotFound();
             }
 
-            var findedEmail = await _context.Contacts.FirstOrDefaultAsync(c => c.Email == contact.Email);
-            if (findedEmail != null)
+            var contactByEmail = await _context.Contacts.AsNoTracking()
+                .FirstOrDefaultAsync(c => c.Email == contact.Email);
+            if (contactByEmail != null)
             {
-                ModelState.AddModelError("Email", "This email is already in use");
-                return View(contact);
+                if (contactByEmail.Id != contact.Id)
+                {
+                    ModelState.AddModelError("Email", "This email is already in use");
+                    return View(contact);
+                }
             }
 
             if (ModelState.IsValid)
