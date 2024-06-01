@@ -68,6 +68,13 @@ namespace Contactes.Web.Controllers
                 return NotFound();
             }
 
+            var findedEmail = await _context.Contacts.FirstOrDefaultAsync(c => c.Email == contact.Email);
+            if (findedEmail != null)
+            {
+                ModelState.AddModelError("Email", "This email is already in use");
+                return View(contact);
+            }
+
             if (ModelState.IsValid)
             {
                 try
