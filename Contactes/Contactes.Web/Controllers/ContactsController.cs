@@ -14,22 +14,24 @@ namespace Contactes.Web.Controllers
             _context = context;
         }
 
+        //[HttpGet] 
         public async Task<IActionResult> Index()
         {
             return View(await _context.Contacts.ToListAsync());
         }
 
-        [HttpGet]
+      //  [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            return View("Add");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Contact contact)
         {
-            bool findedEmail = await _context.Contacts.AnyAsync(c => c.Email == contact.Email);
+            bool findedEmail = await _context.Contacts
+                .AnyAsync(c => c.Email == contact.Email);
             if (findedEmail)// == true)
             {
                 ModelState.AddModelError("Email", "This email is already in use");
@@ -62,8 +64,9 @@ namespace Contactes.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,  Contact contact)
+        public async Task<IActionResult> Edit(long id,  Contact contact)
         {
+            id = 9999999999;
             if (id != contact.Id)
             {
                 return NotFound();

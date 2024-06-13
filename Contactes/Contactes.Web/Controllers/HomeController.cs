@@ -1,5 +1,7 @@
 ﻿using Contactes.Web.Models;
+using Contactes.Web.Persistence;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Contactes.Web.Controllers
@@ -8,15 +10,25 @@ namespace Contactes.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _context;
+         
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context; 
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var contacts = await _context.Contacts.ToListAsync();
+            var model = new HomeViewModel { Contacts = contacts, ContactHeader ="Lo Contato" };
+            return View(model);
         }
+        //public IActionResult Index()
+        //{
+        //   var contacts =    _context.Contacts.ToList()
+        //    return View();
+        //}
 
         public IActionResult Privacy()
         {

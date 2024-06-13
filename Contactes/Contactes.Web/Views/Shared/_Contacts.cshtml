@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Contactes.Web.Models.Contact>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        @foreach (var contact in Model)
+        {
+            <tr>
+                <td>@contact.Name</td>
+                <td>@contact.Email</td>
+                <td>@contact.PhoneNumber</td>
+                <td>
+                    <a asp-controller="Contacts" asp-action="Edit" asp-route-id="@contact.Id">Edit</a> |
+                        <a asp-controller="Contacts" asp-action="Delete" asp-route-idToDelete="@contact.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
