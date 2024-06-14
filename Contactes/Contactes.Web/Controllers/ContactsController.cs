@@ -1,4 +1,6 @@
-﻿using Contactes.Web.Models;
+﻿using Contactes.Domain;
+using Contactes.Domain.Entities;
+using Contactes.Web.Models;
 using Contactes.Web.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +22,7 @@ namespace Contactes.Web.Controllers
             return View(await _context.Contacts.ToListAsync());
         }
 
-      //  [HttpGet]
+        //  [HttpGet]
         public IActionResult Create()
         {
             return View("Add");
@@ -28,23 +30,30 @@ namespace Contactes.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Contact contact)
+        public async Task<IActionResult> Create(CreateContactViewModel model)
         {
             bool findedEmail = await _context.Contacts
-                .AnyAsync(c => c.Email == contact.Email);
+                .AnyAsync(c => c.Email == model.Email);
             if (findedEmail)// == true)
             {
                 ModelState.AddModelError("Email", "This email is already in use");
-                return View(contact);
+                return View(model);
             }
-            
+
             if (ModelState.IsValid)
-            { 
-                _context.Add(contact);
+            {
+                var contactDb = new Contact
+                {
+                    Email = model.Email,
+                    PhoneNumber = model.PhoneNumber,
+                    Name = model.Name
+                };
+
+                _context.Contacts.Add(contactDb);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(contact);
+            return View(model);
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -64,22 +73,22 @@ namespace Contactes.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id,  Contact contact)
+        public async Task<IActionResult> Edit(long id, ContactModel model)
         {
             id = 9999999999;
-            if (id != contact.Id)
+            if (id != model.Id)
             {
                 return NotFound();
             }
 
             var contactByEmail = await _context.Contacts.AsNoTracking()
-                .FirstOrDefaultAsync(c => c.Email == contact.Email);
+                .FirstOrDefaultAsync(c => c.Email == model.Email);
             if (contactByEmail != null)
             {
-                if (contactByEmail.Id != contact.Id)
+                if (contactByEmail.Id != model.Id)
                 {
                     ModelState.AddModelError("Email", "This email is already in use");
-                    return View(contact);
+                    return View(model);
                 }
             }
 
@@ -87,12 +96,21 @@ namespace Contactes.Web.Controllers
             {
                 try
                 {
-                    _context.Update(contact);
+                    var contactFromDb = await _context.Contacts
+                .FirstOrDefaultAsync(c => c.Email == model.Email);
+
+
+                    contactFromDb.Email = model.Email;
+                    contactFromDb.PhoneNumber = model.PhoneNumber;
+                    contactFromDb.Name = model.Name;
+
+
+                    _context.Contacts.Update(contactFromDb);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ContactExists(contact.Id))
+                    if (!ContactExists(model.Id))
                     {
                         return NotFound();
                     }
@@ -103,7 +121,7 @@ namespace Contactes.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(contact);
+            return View(model);
         }
 
         public async Task<IActionResult> Delete(int? idToDelete)
@@ -139,4 +157,3 @@ namespace Contactes.Web.Controllers
         }
     }
 }
- 

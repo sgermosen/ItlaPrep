@@ -2,9 +2,8 @@
 
 namespace Contactes.Web.Models
 {
-    public class Contact
-    {
-        [Key]
+    public class ContactModel
+    { 
         public int Id { get; set; }
 
         [MaxLength(50)]

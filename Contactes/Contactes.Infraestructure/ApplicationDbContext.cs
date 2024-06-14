@@ -1,7 +1,5 @@
 ﻿using Contactes.Domain.Entities;
-using Contactes.Web.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace Contactes.Web.Persistence
 {

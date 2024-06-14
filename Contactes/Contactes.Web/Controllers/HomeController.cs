@@ -11,17 +11,28 @@ namespace Contactes.Web.Controllers
         private readonly ILogger<HomeController> _logger;
 
         private readonly ApplicationDbContext _context;
-         
+
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
-            _context = context; 
+            _context = context;
         }
 
         public async Task<IActionResult> Index()
         {
-            var contacts = await _context.Contacts.ToListAsync();
-            var model = new HomeViewModel { Contacts = contacts, ContactHeader ="Lo Contato" };
+            var contactsFromDb = await _context.Contacts.ToListAsync();
+            var contacts = new List<ContactModel>();
+            foreach (var contact in contactsFromDb)
+            {
+                contacts.Add(new ContactModel
+                {
+                    Name = contact.Name,
+                    PhoneNumber = contact.PhoneNumber,
+                    Email = contact.Email,
+                    Id = contact.Id
+                });
+            }
+            var model = new HomeViewModel { Contacts = contacts, ContactHeader = "Lo Contato" };
             return View(model);
         }
         //public IActionResult Index()

@@ -21,6 +21,10 @@ List<decimal> typedNumbers2 = new List<decimal>();
 //Dictionary<int,string> lastNames = new Dictionary<int,string>();
 //Dictionary<int, string> sexs = new Dictionary<int, string>();
 
+//for remove the entires 
+//names.Remove(2);
+
+
 //names.Add(1, "Juan");
 //lastNames.Add(1, "Almonte");
 //sexs.Add(1, "M");
@@ -41,6 +45,9 @@ List<decimal> typedNumbers2 = new List<decimal>();
 //valuesForDictionary.Add(2, 162);
 //valuesForDictionary.Add(3, 635);
 //valuesForDictionary.Add(96, 635);
+
+//for remove the entires 
+//names.Remove(2);
 
 //string[,] students = new string [3,3];
 //students[0, 1] = "Juan";
