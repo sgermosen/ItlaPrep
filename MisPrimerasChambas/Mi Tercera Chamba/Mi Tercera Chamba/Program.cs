@@ -73,71 +73,36 @@
 
     ///Dictionary
     ///
-    Dictionary<int, int> ids = new Dictionary<int, int>();
-    ids.Add(1, 1);
-    ids.Add(2, 2);
-    ids.Add(3, 15);
+    //Dictionary<int, int> ids = new Dictionary<int, int>();
+    //ids.Add(1, 1);
+    //ids.Add(2, 2);
+    //ids.Add(3, 15);
 
-    Dictionary<string, int> ages = new Dictionary<string, int>();
-    //ages["Juan"] = 25;
-    ages.Add("Juan", 25);
-    ages["Juana"] = 30;
-    ages["Alberto"] = 35;
-    //Console.WriteLine(ages["Juanz"]);
-    Console.WriteLine(ages["Juan"]);
+    //Dictionary<string, int> ages = new Dictionary<string, int>();
+    ////ages["Juan"] = 25;
+    //ages.Add("Juan", 25);
+    //ages["Juana"] = 30;
+    //ages["Alberto"] = 35;
+    ////Console.WriteLine(ages["Juanz"]);
+    //Console.WriteLine(ages["Juan"]);
 
+    //Dictionary<string, string> names = new Dictionary<string, string>();
+    //names.Add("Juan", "Juan");
+    //names.Add("Juana", "Juana");
+    //names.Add("Alberto", "Alberto");
 
+    //Dictionary<string, string> lastNames = new Dictionary<string, string>();
+    //lastNames.Add("Juan", "Almonte");
+    //lastNames.Add("Juana", "La Cuabana");
+    //lastNames.Add("Alberto", "Santiago");
 
-    //Dictionary<string, int> resultadosPorUsuario = new Dictionary<string, int>();
+    //foreach (string name in names.Keys)
+    //{
+    //    Console.WriteLine($"El Nombre es {names[name]} el apellido es {lastNames[name]} {ages[name]}");
+    //}
 
-    //Leer elementos de un Diccionario
-
-    //int resultadoJuan = resultadosPorUsuario["Juan"]; // Accede al resultado de Juan
-    //Console.WriteLine(resultadoJuan);
-
-    //Agregar elementos a un Diccionario
-
-    //resultadosPorUsuario.Add("Ana", 42); // Agrega un resultado para Ana
-
-    //Modificar elementos de un Diccionario
-
-    //resultadosPorUsuario["Ana"] = 45; // Modifica el resultado de Ana
-
-    //Remover elementos de un Diccionario
-
-    //resultadosPorUsuario.Remove("Ana"); // Remueve el resultado de Ana Diccionarios
-
-    //Colecciones de pares clave-valor donde cada clave es única.
-
-    //Útiles para buscar valores rápidamente mediante una clave.
-
-    //Dictionary<string, int> edades = new Dictionary<string, int>();
-    //ages["Juan"] = 25;
-    //ages["Ana"] = 30;
-    //Console.WriteLine(ages["Juan"]); // Muestra la edad de Juan
-
-    //Crear un Diccionario
-
-    //Dictionary<string, int> resultadosPorUsuario = new Dictionary<string, int>();
-
-    //Leer elementos de un Diccionario
-
-    //int resultadoJuan = resultadosPorUsuario["Juan"]; // Accede al resultado de Juan
-    //Console.WriteLine(resultadoJuan);
-
-    //Agregar elementos a un Diccionario
-
-    //resultadosPorUsuario.Add("Ana", 42); // Agrega un resultado para Ana
-
-    //Modificar elementos de un Diccionario
-
-    //resultadosPorUsuario["Ana"] = 45; // Modifica el resultado de Ana
-
-    //Remover elementos de un Diccionario
-
-    //resultadosPorUsuario.Remove("Ana"); // Remueve el resultado de Ana 
-
-
+    //lastNames.Remove("Alberto");
+     
 
     decimal operationResult;
     int typedOption = 0;
