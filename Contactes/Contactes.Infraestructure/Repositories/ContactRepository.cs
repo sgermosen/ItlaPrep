@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contactes.Infraestructure.Repositories
 {
-    internal class ContactRepository
+    public class ContactRepository
     {
     }
 }

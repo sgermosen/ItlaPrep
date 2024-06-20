@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contactes.Infraestructure.Contracts
 {
-    internal interface IContactRepository
+    public interface IContactRepository
     {
     }
 }

@@ -194,6 +194,16 @@ Y posterior a eso podrá escoger los números a los cuales les desea realizar di
             wantToContinue = Convert.ToInt32(Console.ReadLine()) == 1;
 
         }
+        //do
+        //{
+        //    Console.Write("Digite un número adicional: ");
+        //    typedNumbers2.Add(Convert.ToDecimal(Console.ReadLine()));
+
+        //    Console.WriteLine("Desea Continuar? ");
+        //    Console.WriteLine("1. Si, 2. No");
+        //    userWantContinue = Convert.ToInt32(Console.ReadLine());
+        //}
+        //while (wantToContinue == true);
 
         //if (wantToContinue) //== true)
         //{

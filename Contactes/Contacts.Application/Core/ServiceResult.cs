@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contacts.Data
+namespace Contacts.Application.Core
 {
-    internal class Student
+    internal class ServiceResult
     {
     }
 }

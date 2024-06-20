@@ -1,5 +1,4 @@
-﻿using Contactes.Domain;
-using Contactes.Domain.Entities;
+﻿using Contactes.Domain.Entities;
 using Contactes.Web.Models;
 using Contactes.Web.Persistence;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +31,7 @@ namespace Contactes.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateContactViewModel model)
         {
+
             bool findedEmail = await _context.Contacts
                 .AnyAsync(c => c.Email == model.Email);
             if (findedEmail)// == true)

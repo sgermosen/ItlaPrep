@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contactes.Infraestructure.Exceptions
 {
-    internal class ContactException
+    public class ContactException
     {
     }
 }

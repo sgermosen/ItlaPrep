@@ -1,11 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Contactes.Web.Models
+namespace Contacts.Application.Dtos
 {
-    public class ContactModel
-    { 
-        public int Id { get; set; }
-
+    public class BaseContactDto
+    {
         [MaxLength(50)]
         [Required]
         public string Name { get; set; }

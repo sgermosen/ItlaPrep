@@ -1,9 +1,9 @@
 ﻿using Contactes.Web.ViewModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Contactes.Web.Models
+namespace Contacts.Application.Dtos.Contact
 {
-    public class UpdateContactViewModel: BaseContactViewModel
+    public class UpdateContactDto: BaseContactDto
     { 
         public int Id { get; set; }
 

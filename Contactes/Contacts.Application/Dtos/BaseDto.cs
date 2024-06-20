@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contacts.Data
+namespace Contacts.Application.Dtos
 {
-    internal class CommnunityMember
+    internal class BaseDto
     {
     }
 }

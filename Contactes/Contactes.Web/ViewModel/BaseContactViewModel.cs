@@ -1,12 +1,9 @@
-﻿using Contactes.Domain.Base;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Contactes.Domain.Entities
+namespace Contactes.Web.ViewModel
 {
-    public class Contact: BaseEntity
+    public class BaseContactViewModel
     {
-        // [Key] 
-        //public int Id { get; set; }
         [MaxLength(50)]
         [Required]
         public string Name { get; set; }
