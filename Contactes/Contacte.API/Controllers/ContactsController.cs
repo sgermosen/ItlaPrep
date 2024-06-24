@@ -1,6 +1,4 @@
-﻿using Contacte.API;
-using Contactes.Domain.Entities;
-using Contactes.Web.Models;
+﻿using Contactes.Domain.Entities;
 using Contactes.Web.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,19 +7,19 @@ namespace Contactes.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ContactsController: ControllerBase
+    public class ContactsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        
+
         public ContactsController(ApplicationDbContext context)
-        { 
+        {
             _context = context;
         }
 
         [HttpGet(Name = "GetContacts")]
         public IEnumerable<Contact> Get()
         {
-             var contactsFromDb = _context.Contacts.ToList();
+            var contactsFromDb = _context.Contacts.ToList();
             return contactsFromDb;
         }
 
