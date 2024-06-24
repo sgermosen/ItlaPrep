@@ -1,6 +1,6 @@
 ﻿namespace Contacts.Application.Contracts
 {
-    public interface IContactService
+    public class ContactService
     {
     }
 }

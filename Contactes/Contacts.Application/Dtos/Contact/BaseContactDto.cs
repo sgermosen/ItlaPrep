@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Contacts.Application.Dtos
+namespace Contacts.Application.Dtos.Contact
 {
     public class BaseContactDto
     {
