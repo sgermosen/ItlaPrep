@@ -1,0 +1,8 @@
+﻿@model Contactes.Web.Models.ContactModel
+
+<h1>Edit Contact</h1>
+<form asp-action="Edit">
+    <partial name="_ContactInputsCommon" />
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

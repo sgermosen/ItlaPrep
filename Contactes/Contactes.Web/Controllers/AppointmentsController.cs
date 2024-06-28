@@ -7,25 +7,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Contactes.Web.Controllers
 {
-    public class ContactsController : Controller
+    public class AppointmentsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ContactsController(ApplicationDbContext context)
+        public AppointmentsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        //[HttpGet] 
         public async Task<IActionResult> Index()
         {
             return View(await _context.Contacts.ToListAsync());
         }
 
-        //  [HttpGet]
         public IActionResult Create()
         {
-            return View("Add");
+            return View();
         }
 
         [HttpPost]
@@ -35,7 +33,7 @@ namespace Contactes.Web.Controllers
 
             bool findedEmail = await _context.Contacts
                 .AnyAsync(c => c.Email == model.Email);
-            if (findedEmail)// == true)
+            if (findedEmail)
             {
                 ModelState.AddModelError("Email", "This email is already in use");
                 return View(model);

@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Contactes.Web.Controllers
 {
-    public class ContactsController : Controller
+    public class ContactAppointmentsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ContactsController(ApplicationDbContext context)
+        public ContactAppointmentsController(ApplicationDbContext context)
         {
             _context = context;
         }

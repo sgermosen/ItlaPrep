@@ -1,12 +1,7 @@
-﻿using Contactes.Web.ViewModel;
-using System.ComponentModel.DataAnnotations;
-
-namespace Contactes.Web.Models
+﻿namespace Contactes.Web.ViewModel.Contact
 {
-    public class UpdateContactViewModel: BaseContactViewModel
-    { 
-        public int Id { get; set; }
-
+    public class CreateContactViewModel : BaseContactViewModel
+    {
         //[MaxLength(50)]
         //[Required]
         //public string Name { get; set; }

@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Contactes.Domain.Entities
 {
-    public class Contact: BaseEntity
+    public class Contact : BaseEntity
     {
-        // [Key] 
+        //[Key]
         //public int Id { get; set; }
         [MaxLength(50)]
         [Required]
@@ -15,5 +15,8 @@ namespace Contactes.Domain.Entities
         [EmailAddress]
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
+
+        public List<ContactAppointment> ContactAppointments { get; set; }
+
     }
 }

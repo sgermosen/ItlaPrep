@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Contactes.Web.ViewModel
+namespace Contacts.Application.Dtos.Contact
 {
-    public class BaseContactViewModel
+    public class BaseContactAppointmentDto
     {
         [MaxLength(50)]
         [Required]

@@ -11,5 +11,7 @@ namespace Contactes.Web.Persistence
         }
 
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<ContactAppointment> ContactAppointments { get; set; }
     }
 }

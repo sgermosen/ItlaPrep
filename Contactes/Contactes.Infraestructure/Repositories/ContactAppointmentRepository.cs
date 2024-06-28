@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contacts.Application.Core
+namespace Contactes.Infraestructure.Repositories
 {
-    public class ServiceResult
+    public class ContactAppointmentRepository
     {
     }
 }

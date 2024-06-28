@@ -4,14 +4,8 @@ namespace Contactes.Web.Models
 {
     public class ContactModel
     { 
-        public int Id { get; set; }
-
-        [MaxLength(50)]
-        [Required]
-        public string Name { get; set; }
-
-        [MaxLength(50)]
-        [EmailAddress]
+        public int Id { get; set; } 
+        public string Name { get; set; }  
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
     }

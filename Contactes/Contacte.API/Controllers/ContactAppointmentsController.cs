@@ -7,11 +7,11 @@ namespace Contactes.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ContactsController : ControllerBase
+    public class ContactAppointmentsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
 
-        public ContactsController(ApplicationDbContext context)
+        public ContactAppointmentsController(ApplicationDbContext context)
         {
             _context = context;
         }
