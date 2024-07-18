@@ -1,0 +1,29 @@
+﻿@model Bookstore.Web.Models.Book
+
+@{
+    ViewData["Title"] = "Add Book";
+    Layout = "_Layout";
+
+}
+
+<form asp-asp-controller="Books" asp-action="Create">
+   <div class="row col-md-12">
+
+    <div class="form-group col-md-4">
+    <label asp-for="Name" id="name"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group  col-md-4">
+    <label asp-for="Author"></label>
+            <input asp-for="Author" class="form-control" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+        <div class="form-group  col-md-4">
+            <label asp-for="Type"></label>
+            <input asp-for="Type" class="form-control" />
+            <span asp-validation-for="Type" class="text-danger"></span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    </form>

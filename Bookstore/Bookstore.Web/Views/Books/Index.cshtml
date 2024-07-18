@@ -1,0 +1,63 @@
+﻿@model List<Bookstore.Web.Models.Book>
+
+@{
+    ViewData["Title"] = "Books";
+    Layout = "_Layout";
+
+}
+<a asp-controller="Books" asp-action="Create" class="btn btn-primary">
+Create New
+</a>
+<div class="text-center">
+    <h1 class="display-4">Welcome the list of books</h1>
+    </div>
+
+    <table>
+<thead>
+   <td>
+       Id
+   </td
+   <td>
+       NAme
+   </td>
+   <td>
+       Author
+   </td>
+   <td>
+       Type
+   </td>
+</thead>
+   <tbody>
+@if (Model.Any()) 
+{
+    
+    foreach (var item in Model)
+            {
+               <tr >
+                    <td>
+       @item.Id
+   </td
+   <td>
+       @item.Name
+   </td>
+   <td>
+       @item.Author
+   </td>
+   <td>
+       @item.Type
+   </td>
+               </tr>
+            }
+ 
+
+}
+else
+        {
+            <tr  >
+             <td colspan="4">
+        No Records Found
+   </td>
+   </tr>
+        }
+    </tbody>
+</table>
